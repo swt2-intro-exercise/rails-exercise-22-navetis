@@ -11,4 +11,9 @@ RSpec.describe Author, type: :model do
     expect(author.homepage).to eq(homepage)
     expect(author.name).to eq(first_name + " " + last_name)
   end
+
+  it "author model should not be valid if last name missing" do
+    author = Author.new(first_name: "Alan", homepage: "http://wikipedia.org/Alan_Turing")
+    expect(author).to_not be_valid
+  end
 end
