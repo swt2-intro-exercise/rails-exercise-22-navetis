@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :authors
-  
+
   # You can have the root of your site routed with "root"
   root 'home#index'
 
