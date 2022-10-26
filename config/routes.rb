@@ -3,12 +3,17 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rails routes".
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get 'home/index'
+
+  resources :authors
+  
   # You can have the root of your site routed with "root"
   root 'home#index'
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
