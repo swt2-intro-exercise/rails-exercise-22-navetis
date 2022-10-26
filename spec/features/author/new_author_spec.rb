@@ -20,4 +20,9 @@ describe "New author page", type: :feature do
     page.fill_in 'author[homepage]', with: 'http://wikipedia.org/Alan_Turing'
     find('input[type="submit"]').click
   end
+
+  it "should have a link to go to index page" do
+    visit new_author_path
+    expect(page).to have_link 'Back', href: authors_path
+    end
 end
