@@ -1,5 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Paper, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "paper model should have first title, last venue and year" do
+    title = "Test"
+    venue = "Blub"
+    year = 2000
+    paper = Paper.new(title: title, venue: venue, year: year)
+    expect(paper.title).to eq(title)
+    expect(paper.venue).to eq(venue)
+    expect(paper.year).to eq(year)
+  end
+
+  it "author model should not be valid in some cases" do
+    paper = Paper.new(title: "Test", venue: "Blub")
+    expect(paper).to_not be_valid
+    paper = Paper.new(title: "Test", year: 2000)
+    expect(paper).to_not be_valid
+    paper = Paper.new(venue: "Blub", year: 2000)
+    expect(paper).to_not be_valid
+    paper = Paper.new(title: "Test", venue: "Blub", year: 1.3)
+    expect(paper).to_not be_valid
+  end
 end

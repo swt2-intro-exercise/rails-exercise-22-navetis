@@ -4,4 +4,10 @@ class Author < ApplicationRecord
     end
 
     validates :last_name, presence: true
-end
+    validate :homepage_starts_with_http
+
+    private
+    def homepage_starts_with_http
+      errors.add(homepage, "doesn't start with http") unless homepage.start_with?("http")
+    end
+  end

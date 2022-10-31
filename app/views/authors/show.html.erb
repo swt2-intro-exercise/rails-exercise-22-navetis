@@ -12,12 +12,14 @@
 
 <p>
     <strong>Homepage:</strong>
-    <%= @author.homepage %>
+    <%= link_to @author.homepage, @author.homepage %>
 </p>
 
 <div>
     <%= link_to 'Back to authors', authors_path %> |
-    <%= link_to "Edit this author", edit_author_path(@author) %> 
-
-    <%= button_to "Delete this author", @author, method: :delete %>
+    <%= link_to "Edit this author", edit_author_path(@author) %>
 </div>
+
+<br>
+
+<%= button_to "Delete this author", @author, method: :delete %>
