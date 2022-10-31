@@ -1,3 +1,5 @@
+<p style="color: green"><%= notice %></p>
+
 <p>
     <strong>First name:</strong>
     <%= @author.first_name %>
@@ -13,4 +15,9 @@
     <%= @author.homepage %>
 </p>
 
-<%= link_to 'Back', authors_path %>
+<div>
+    <%= link_to 'Back to authors', authors_path %> |
+    <%= link_to "Edit this author", edit_author_path(@author) %> 
+
+    <%= button_to "Delete this author", @author, method: :delete %>
+</div>

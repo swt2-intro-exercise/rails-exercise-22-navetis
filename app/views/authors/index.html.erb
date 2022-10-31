@@ -1,11 +1,12 @@
 
-<h1>Listing Authors</h1>
+<p style="color: green"><%= notice %></p>
+
+<h1>Authors</h1>
  
 <table>
   <tr>
     <th>Name</th>
     <th>Homepage</th>
-    <th></th>
   </tr>
  
   <% @authors.each do |author| %>
@@ -20,4 +21,4 @@
 </table>
 
 
-<%= link_to 'New', new_author_path %>
+<%= link_to 'New author', new_author_path %>

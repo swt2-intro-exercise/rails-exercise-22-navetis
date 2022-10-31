@@ -7,7 +7,7 @@ describe "Author index page", :type => :feature do
 
     it "should have a link to create a new author" do
         visit authors_path
-        expect(page).to have_link 'New', href: new_author_path
+        expect(page).to have_link 'New author', href: new_author_path
     end
     
     it "should have a table with a row for each author" do
@@ -22,10 +22,17 @@ describe "Author index page", :type => :feature do
         end
     end
 
+    it "should have a link to show an author" do
+        visit authors_path
+        Author.all.each do |author|
+            expect(page).to have_link('Show', href: author_path(author))
+        end
+    end
+
     it "should have a link to delete an author" do
         visit authors_path
         Author.all.each do |author|
-            expect(page).to have_link('Delete', href: author_path(author))
+            expect(page).to have_link('Delete', href: delete_author_path(author))
         end
     end
 
