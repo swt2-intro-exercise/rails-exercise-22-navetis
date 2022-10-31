@@ -26,8 +26,13 @@
     <%= form.number_field :year %>
   </p>
 
+  <%= form.select 'author_ids',
+  options_from_collection_for_select(Author.all, :id, :name, paper.author_ids),
+  {},
+  multiple: true, size: 10   %>
+
   <p>
     <%= form.submit %>
   </p>
-  
+
 <% end %>

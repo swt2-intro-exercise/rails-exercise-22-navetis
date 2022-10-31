@@ -9,6 +9,7 @@ RSpec.describe Paper, type: :model do
     expect(paper.title).to eq(title)
     expect(paper.venue).to eq(venue)
     expect(paper.year).to eq(year)
+    expect(paper).to be_valid
   end
 
   it "author model should not be valid in some cases" do
@@ -20,5 +21,10 @@ RSpec.describe Paper, type: :model do
     expect(paper).to_not be_valid
     paper = Paper.new(title: "Test", venue: "Blub", year: 1.3)
     expect(paper).to_not be_valid
+  end
+
+  it "should have an empty list of authors" do
+    paper = Paper.new(title: "Test", venue: "test", year: 2023)
+    expect(paper.authors).to be_empty
   end
 end
